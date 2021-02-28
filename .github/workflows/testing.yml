@@ -1,0 +1,23 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  macos:
+    name: Test on macOS
+    runs-on: macos-latest
+    steps:
+    - name: Get the code
+      uses: actions/checkout@v2
+    - name: Build and check all tests
+      run: make check
+  linux:
+    name: Test on Lunux
+    runs-on: ubuntu-latest
+    container:
+      image: swift:5.3
+    steps:
+    - name: Get the code
+      uses: actions/checkout@v2
+    - name: Build and check all tests
+      run: make check
