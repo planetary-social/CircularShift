@@ -41,6 +41,14 @@ x == 0b1000110000000011
 
 As you can easily verify, the result is exactly the same.
 
+## Performance Considerations
+
+Swift is an [optimizing compiler](https://en.wikipedia.org/wiki/Optimizing_compiler), which in a nutshell means it is actively trying to minimize the size of generated machine code in order to achieve faster execution times. In a _perfect world_, the most obvious implementation (like this one) should be effectively compiled down to equivalent of the  `ROL` and `ROR` instructions, whenever the target architecture supports them, thus ensuring the maximum performance.
+
+That said, there's no guarantee of such optimization taking place. Nevertheless, no steps have been taken to optimize this implementation manually, i.e. by bridging C or ASM variants into Swift. The reason is simple: good optimizing compiler *must* optimize this sort of trivial code correctly in order to be a good optimizing compiler, otherwise what's the point? In other words, why bother using an optimizing compiler, if at the end of the day we're forced to get our hands dirty writing explicit assembly instructions? 
+
+If you notice the resulting machine code (compiled in release mode) is not being optimized correctly, do not hesitate to let the Swift development team know by [reporting a bug](https://swift.org/contributing/#reporting-bugs), unless you know for sure it happens because of our mistake, then please [let us know](https://github.com/planetary-social/CircularShift/issues) instead.
+
 ## Acknowledgements
 
 - Cover photo by [shade jay](https://unsplash.com/@shadejay) on [Unsplash](https://unsplash.com/photos/COr3Mvxs4Po).
