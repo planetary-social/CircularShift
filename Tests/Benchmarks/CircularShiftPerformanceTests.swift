@@ -15,4 +15,17 @@ import XCTest
 
 final class CircularShiftPerformanceTests: XCTestCase {
 
+	let sampleSize = 10_000_000 // * 33 in total
+
+	// MARK: Measurements
+
+	func testRotateLeft() {
+		var x = UInt32.random(in: .min...(.max))
+		measure { for _ in 0..<sampleSize { for n in 0...32 { x <<<= n } } }
+	}
+
+	func testRotateRight() {
+		var x = UInt32.random(in: .min...(.max))
+		measure { for _ in 0..<sampleSize { for n in 0...32 { x >>>= n } } }
+	}
 }
