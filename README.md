@@ -21,6 +21,22 @@ Now you have access to  `<<<` and `>>>` operators (and their mutating variants `
 0b00010111 as UInt8 >>> 1 == 0b10001011
 ```
 
+Keep in mind, that depending on the offset, more bits will be moved around. Also note these rotations work for any type conforming to `FixedWidthInteger`, according to its bit-width:
+
+```swift
+0b1000000001110001 as UInt32 >>> 5 == 0b1000110000000011
+```
+
+Of course, there is no need to express the operand in binary, the example above could be perfectly well written in decimal representation. Here is an example using the mutating variant (rotate and assign):
+
+```swift
+var x: UInt32 = 32881
+x >>>= 5 
+x == 0b1000110000000011
+```
+
+As you can easily verify, the result is exactly the same.
+
 ## Copyleft Notice
 
 This project is humbly [unlicensed](https://unlicense.org).
