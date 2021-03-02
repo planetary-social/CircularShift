@@ -54,6 +54,7 @@ public extension FixedWidthInteger {
 	///
 	@inlinable @inline(__always)
 	static func <<<= <RHS: BinaryInteger>(lhs: inout Self, rhs: RHS) {
+		lhs = lhs <<< rhs
 	}
 
 	/// Returns the result of rotating a value’s binary representation the specified number of digits to the right.
@@ -67,5 +68,6 @@ public extension FixedWidthInteger {
 	///
 	@inlinable @inline(__always)
 	static func >>>= <RHS: BinaryInteger>(lhs: inout Self, rhs: RHS) {
+		lhs = lhs >>> rhs
 	}
 }
