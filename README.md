@@ -21,6 +21,10 @@ Now you have access to  `<<<` and `>>>` operators (and their mutating variants `
 0b00010111 as UInt8 >>> 1 == 0b10001011
 ```
 
+We've got two 8-bit integers, both rotated one position, first one to the left, the other one to the right. Rotating bits to the left moves the most significant bit to the least significant position, and vice versa in case of rotation to the right; all other bits are shifted in the respective direction. _Show, don't tell_, both examples can be simply visualised as follows:
+
+![Circular Shifts Diagram](Documentation/Images/CircularShiftsDiagram.svg)
+
 Keep in mind, that depending on the offset, more bits will be moved around. Also note these rotations work for any type conforming to `FixedWidthInteger`, according to its bit-width:
 
 ```swift
