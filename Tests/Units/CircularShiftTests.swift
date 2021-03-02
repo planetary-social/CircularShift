@@ -65,6 +65,18 @@ final class CircularShiftTests: XCTestCase {
 		}
 	}
 
+	// MARK: Rotations with Assignment
+
+	func testAssignmentVariants() {
+		for (value, offset) in CircularShiftSamplePairs<UInt32>().prefix(25_000) {
+			var copy = value
+			copy <<<= offset
+			XCTAssertEqual(copy, value <<< offset)
+			copy >>>= offset
+			XCTAssertEqual(copy, value)
+		}
+	}
+
 	// MARK: Relationship Between the Two Circular Shifts
 
 	/// Each standard integer type should satisfy the equivalence relationship property.
