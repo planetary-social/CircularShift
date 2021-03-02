@@ -41,6 +41,12 @@ x == 0b1000110000000011
 
 As you can easily verify, the result is exactly the same.
 
+## Acknowledgements
+
+- Cover photo by [shade jay](https://unsplash.com/@shadejay) on [Unsplash](https://unsplash.com/photos/COr3Mvxs4Po).
+- Bitwise circular shift graphics based on the works of [Colin M.L. Burnett](https://en.wikipedia.org/wiki/User:Cburnett) on [Wikipedia](https://en.wikipedia.org/wiki/Circular_shift).
+- Documentation and code are largely based on the Wikipedia articles about [circular shifts](https://en.wikipedia.org/wiki/Circular_shift) and [bitwise operations](https://en.wikipedia.org/wiki/Bitwise_operation#bit_rotation).
+
 ## Copyleft Notice
 
 This project is humbly [unlicensed](https://unlicense.org).
