@@ -29,6 +29,18 @@ infix operator >>>= : AssignmentPrecedence
 
 // MARK: Default Implementation for Any Fixed-width Integer
 
+/// Since we have access to `FixedWidthInteger.bitWidth`, it is easy to generalize the implementation of circular shifts for all the conformant integer types.
+///
+/// - Note:
+///   All the rotation operators accept a generic offset (right-hand-side) operand;
+///   Any `BinaryInteger` can act as the offset, however...
+///
+/// - Important:
+///   The offset must be no larger than the bit-width of the concrete integer type on left-hand-side.
+///   For example, the offset must be smaller than or equal to 8 for `Int8`, smaller than or equal to 16 for `Int16`, and so on.
+///   Due to performance reasons, it is the caller's responsability to ensure this property.
+///   Too large offset will inevitably crash the progam with the value overlow.
+///
 public extension FixedWidthInteger {
 
 	@inlinable @inline(__always)
