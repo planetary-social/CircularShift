@@ -40,5 +40,10 @@ let package = Package(
 				dependencies: ["CircularShift"],
 				path: "Tests/Units"
 			),
+			.testTarget(
+				name: "CircularShiftBenchmarks",
+				dependencies: ["CircularShift"],
+				path: "Tests/Benchmarks"
+			),
 		]
 )
