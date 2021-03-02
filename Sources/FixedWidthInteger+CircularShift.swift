@@ -43,20 +43,28 @@ infix operator >>>= : AssignmentPrecedence
 ///
 public extension FixedWidthInteger {
 
+	/// Returns the result of rotating a value’s binary representation the specified number of digits to the left.
+	///
 	@inlinable @inline(__always)
 	static func <<< <RHS: BinaryInteger>(lhs: Self, rhs: RHS) -> Self {
 		0
 	}
 
+	/// Stores the result of rotating a value’s binary representation the specified number of digits to the left in the left-hand-side variable.
+	///
 	@inlinable @inline(__always)
 	static func <<<= <RHS: BinaryInteger>(lhs: inout Self, rhs: RHS) {
 	}
 
+	/// Returns the result of rotating a value’s binary representation the specified number of digits to the right.
+	///
 	@inlinable @inline(__always)
 	static func >>> <RHS: BinaryInteger>(lhs: Self, rhs: RHS) -> Self {
 		0
 	}
 
+	/// Stores the result of rotating a value’s binary representation the specified number of digits to the right in the left-hand-side variable.
+	///
 	@inlinable @inline(__always)
 	static func >>>= <RHS: BinaryInteger>(lhs: inout Self, rhs: RHS) {
 	}
