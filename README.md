@@ -49,6 +49,13 @@ That said, there's no guarantee of such optimization taking place. Nevertheless,
 
 If you notice the resulting machine code (compiled in release mode) is not being optimized correctly, do not hesitate to let the Swift development team know by [reporting a bug](https://swift.org/contributing/#reporting-bugs), unless you know for sure it happens because of our mistake, then please [let us know](https://github.com/planetary-social/CircularShift/issues) instead.
 
+## Implementation Details
+
+- [FixedWidthInteger+CircularShift.swift](Sources/FixedWidthInteger+CircularShift.swift)
+- [CircularShiftSamplePairs.swift](Tests/Units/CircularShiftSamplePairs.swift)
+- [CircularShiftTests.swift](Tests/Units/CircularShiftTests.swift)
+- [CircularShiftPerformanceTests.swift](Tests/Benchmarks/CircularShiftPerformanceTests.swift)
+
 ## Acknowledgements
 
 - Cover photo by [shade jay](https://unsplash.com/@shadejay) on [Unsplash](https://unsplash.com/photos/COr3Mvxs4Po).
