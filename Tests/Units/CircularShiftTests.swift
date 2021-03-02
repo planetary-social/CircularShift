@@ -64,4 +64,33 @@ final class CircularShiftTests: XCTestCase {
 			}
 		}
 	}
+
+	// MARK: Relationship Between the Two Circular Shifts
+
+	func testEquivalenceRelationhips() {
+		AssertRotationsEquivalence< Int8 >()
+		AssertRotationsEquivalence<UInt8 >()
+		AssertRotationsEquivalence< Int16>()
+		AssertRotationsEquivalence<UInt16>()
+		AssertRotationsEquivalence< Int32>()
+		AssertRotationsEquivalence<UInt32>()
+		AssertRotationsEquivalence< Int64>()
+		AssertRotationsEquivalence<UInt64>()
+	}
+
+	private struct AssertRotationsEquivalence<I: FixedWidthInteger> {
+		@discardableResult
+		init(file: StaticString = #file, line: UInt = #line) {
+			for (value, offset) in CircularShiftSamplePairs<I>().prefix(10_000) {
+				XCTAssertEqual(
+					value >>> offset, value <<< (I(I.bitWidth) - offset),
+					file: file, line: line
+				)
+				XCTAssertEqual(
+					value <<< offset, value >>> (I(I.bitWidth) - offset),
+					file: file, line: line
+				)
+			}
+		}
+	}
 }
