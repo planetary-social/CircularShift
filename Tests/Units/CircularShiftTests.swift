@@ -67,6 +67,14 @@ final class CircularShiftTests: XCTestCase {
 
 	// MARK: Rotations with Assignment
 
+	/// Each number rotated in place should equal the result of non-mutating bitwise rotation with the same offset.
+	/// Additionally, when already rotated copy is rotated back in the opposite direction, it should equal the original value.
+	///
+	/// Test sample consists of 25000 randomly generated pairs of numbers and offsets.
+	///
+	/// - Remark:
+	///   For brevity, only `UInt32` is being tested here.
+	///
 	func testAssignmentVariants() {
 		for (value, offset) in CircularShiftSamplePairs<UInt32>().prefix(25_000) {
 			var copy = value
