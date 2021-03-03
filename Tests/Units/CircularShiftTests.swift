@@ -67,6 +67,8 @@ final class CircularShiftTests: XCTestCase {
 
 	// MARK: Relationship Between the Two Circular Shifts
 
+	/// Each standard integer type should satisfy the equivalence relationship property.
+	///
 	func testEquivalenceRelationhips() {
 		AssertRotationsEquivalence< Int8 >()
 		AssertRotationsEquivalence<UInt8 >()
@@ -78,6 +80,15 @@ final class CircularShiftTests: XCTestCase {
 		AssertRotationsEquivalence<UInt64>()
 	}
 
+	/// This assertion verifies the equivalence relationship property of left and right circular shifts.
+	///
+	/// The property in question being:
+	///
+	///    x <<< n == x >>> (B - n)
+	///    x >>> n == x <<< (B - n)
+	///
+	/// Where `B` is the bit-width of given integer type.
+	///
 	private struct AssertRotationsEquivalence<I: FixedWidthInteger> {
 		@discardableResult
 		init(file: StaticString = #file, line: UInt = #line) {
