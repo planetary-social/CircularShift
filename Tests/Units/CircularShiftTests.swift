@@ -19,6 +19,11 @@ final class CircularShiftTests: XCTestCase {
 
 	// MARK: Simplified Rotation Examples
 
+	/// The results of bitwise rotation should match all of the hand-written examples.
+	///
+	/// All of the examples have been additionally verified using C implementation from NaCL cryptographic library.
+	/// Several sets are provided for integers of various size.
+	///
 	func testSimpleExamples() {
 		AssertEachPairEqual<UInt8>(
 			(0b10000000 <<< 4, 0b00001000),
