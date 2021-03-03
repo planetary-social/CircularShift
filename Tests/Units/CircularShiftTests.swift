@@ -51,6 +51,8 @@ final class CircularShiftTests: XCTestCase {
 		)
 	}
 
+	/// This assertion makes sure every pair of fixed-width integers are indeed equal.
+	///
 	private struct AssertEachPairEqual<I: FixedWidthInteger> {
 		@discardableResult
 		init(_ examples: (I, I)..., file: StaticString = #file, line: UInt = #line) {
