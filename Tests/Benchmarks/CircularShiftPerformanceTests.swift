@@ -13,8 +13,17 @@ import XCTest
 
 // MARK: Benchmarking Circular Shift Operations
 
+/// Here we test the speed of bitwise rotation for fixed-width integers.
+///
+/// All tests start with a single random value, then continuously rotate it in place billions of times over.
+///
+/// - Remark:
+///   For brevity, only `UInt32` is being tested here.
+///
 final class CircularShiftPerformanceTests: XCTestCase {
 
+	/// The amount of iterations, each one invoking given rotation exactly 33 times.
+	///
 	let sampleSize = 10_000_000 // * 33 in total
 
 	// MARK: Measurements
