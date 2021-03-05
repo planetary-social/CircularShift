@@ -12,20 +12,14 @@
 
 /// A sequence of value and offset pairs suitable as test samples.
 ///
-struct CircularShiftSamplePairs<I: FixedWidthInteger>: Sequence {
-
-	init() { }
-
-	func makeIterator() -> Iterator { .init() }
+struct CircularShiftSamplePairs<I: FixedWidthInteger>: LazySequenceProtocol, IteratorProtocol {
 
 	/// Generates a random pair of numbers in each iteration.
 	///
 	/// First of the numbers is the value to be rotated, second one is the rotation offset.
 	/// The value can range over the entire domain of its type, while the offset is never greater than the bit-width of that type.
 	///
-	struct Iterator: IteratorProtocol {
-		func next() -> (value: I, offset: I)? {
-			(I.random(in: .min...(.max)), I.random(in: 0...I(I.bitWidth)))
-		}
+	func next() -> (value: I, offset: I)? {
+		(I.random(in: .min...(.max)), I.random(in: 0...I(I.bitWidth)))
 	}
 }
